@@ -112,4 +112,6 @@ class contactPerson{
     }
 }
 
- addressbook = new contactPerson("Pooja", "Roy", "Saradalane", "Kokrajhar", "Assam", 7783370, 3445655756, "pooja14206@gmail.com");
+ addressbook = new contactPerson("Pooja", "Roy", "Saradalane", "Kokrajhar", "Assam", 778330, 3445655756, "pooja14206@gmail.com");
+
+console.log(addressbook.toString());
