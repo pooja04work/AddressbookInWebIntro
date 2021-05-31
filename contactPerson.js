@@ -1,6 +1,6 @@
 class contactPerson{
 
-    contactPerson(firstName,lastName,address,city,state,zip,phoneNumber,email){
+    constructor(firstName,lastName,address,city,state,zip,phoneNumber,email){
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -17,7 +17,6 @@ class contactPerson{
         const FIRST_NAME_PATTERN = RegExp("^[A-Z]{1}[a-z]{2,}$");
         if(FIRST_NAME_PATTERN.test(firstName)) {
             this._firstName = firstName; 
-            console.log("First Name " + this._firstName);   
         }else
             console.log("Invalid First Name!!!");
     }
@@ -26,7 +25,7 @@ class contactPerson{
 
     set lastName(lastName){
         const LAST_NAME_PATTERN = RegExp("^[A-Z]{1}[a-z]{2,}$");
-        if(FIRST_NAME_PATTERN.test(lastName)) {
+        if(LAST_NAME_PATTERN.test(lastName)) {
             this._lastName = lastName;    
         }else
             console.log("Invalid Last Name!!!");
@@ -67,10 +66,10 @@ class contactPerson{
 
     get zip(){return this._zip;}
 
-    set zipCode(zipCode) {
-        const ZIP_PATTERN = RegExp("^[1-9]{1}[0-9]{6}$");
-        if (ZIP_PATTERN.test(zipCode)) {
-            this._zipCode = zipCode;
+    set zip(zip) {
+        const ZIP_PATTERN = RegExp("^[1-9]{1}[0-9]{2}[ ]?[0-9]{3}$");
+        if (ZIP_PATTERN.test(zip)) {
+            this._zip = zip;
         }
         else {
             console.log("Invalid Zip!!!");
@@ -80,7 +79,7 @@ class contactPerson{
     get phoneNumber(){return this._phoneNumber;}
 
     set phoneNumber(phoneNumber) {
-        const PHONE_NUMBER = RegExp("[0-9]{2}[\s][0-9]{10}$");
+        const PHONE_NUMBER = RegExp("^[1-9]{1}[0-9]{9}$");
         if (PHONE_NUMBER.test(phoneNumber)) {
             this._phoneNumber = phoneNumber;
         }
@@ -92,7 +91,7 @@ class contactPerson{
     get email(){return this._email;}
 
     set email(email) {
-        const EMAIL_PATTERN = RegExp("^[a-zA-Z0-9]{1,}[.a-zA-Z0-9]*@[a-zA-Z0-9]{1,}((.){1}+)([a-z]{1,3}+)(.[a-z]{2})*$");
+        const EMAIL_PATTERN = RegExp("^[a-z0-9]+(([\\._+-][a-z0-9]+)?)\\@[a-z0-9]+\\.(([a-z]{2,4})(\\.[a-z]{2,4})?)$");
         if (EMAIL_PATTERN.test(email)) {
             this._email = email;
         }
@@ -102,16 +101,15 @@ class contactPerson{
     }
 
     toString() {
-        return "firstName= " + this.firstName + 
-               " ,lastName= " + this.lastName +
-               " ,address= " + this.address +
-               " ,city= " + this.city +
-               " ,state= " + this.state +
-               " ,zipCode= " + this.zipCode +
-               " ,phoneNumber= " + this.phoneNumber +
-               " ,email= " + this.email;
+        return "firstName = " + this.firstName + 
+               " ,lastName = " + this.lastName +
+               " ,address = " + this.address +
+               " ,city = " + this.city +
+               " ,state = " + this.state +
+               " ,zip = " + this.zip +
+               " ,phoneNumber = " + this.phoneNumber +
+               " ,email = " + this.email;
     }
 }
- addressbook = new contactPerson("Pooja", "Roy", "Saradalane", "Kokrajhar", "Assam", "783370", "3445655756", "pooja14206@");
 
-console.log(addressbook.firstName);
+ addressbook = new contactPerson("Pooja", "Roy", "Saradalane", "Kokrajhar", "Assam", 7783370, 3445655756, "pooja14206@gmail.com");
