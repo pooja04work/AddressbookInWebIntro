@@ -214,11 +214,21 @@ function searchByCity() {
     }
 
 }
+function countPersonByCity() {
+    let cityForSearch = prompt("enter the city for count Persons: ");
+    count = 0;
+    for (let i = 0; i < addressbook.length; i++) {
+        if (addressbook[i].city == cityForSearch) {
+            count++;
+        }
+    }
+    console.log("Total number of people live in " + cityForSearch + " : " + count);
+}
 
 let choice = 1;
 
 while (choice != 0) {
-    console.log("1.Display \n2.Add Person. \n3.Edit Person. \n4.Delete Person. \n5.Total Person. \n6.Search By City \n7.Exit");
+    console.log("1.Display \n2.Add Person. \n3.Edit Person. \n4.Delete Person. \n5.Total Person. \n6.Search By City \n7.Count Person By City. \n8.Exit");
     choice = prompt("enter your choice : ");
     choice = parseInt(choice);
 
@@ -245,6 +255,9 @@ while (choice != 0) {
             searchByCity();
             break;
         case 7:
+            countPersonByCity();
+            break;
+        case 8:
             choice = 0;
     }
 }
