@@ -205,10 +205,20 @@ function countPerson() {
     console.log("number of person in addressbook : " + count);
 }
 
+function searchByCity() {
+    let cityForSearch = prompt("enter the city for retrive Persons: ");
+    for (let i = 0; i < addressbook.length; i++) {
+        if (addressbook[i].city == cityForSearch) {
+            console.log(addressbook[i]);
+        }
+    }
+
+}
+
 let choice = 1;
 
 while (choice != 0) {
-    console.log("1.Display \n2.Add Person. \n3.Edit Person. \n4.Delete Person. \n5.Total Person. \n6Exit");
+    console.log("1.Display \n2.Add Person. \n3.Edit Person. \n4.Delete Person. \n5.Total Person. \n6.Search By City \n7.Exit");
     choice = prompt("enter your choice : ");
     choice = parseInt(choice);
 
@@ -227,9 +237,14 @@ while (choice != 0) {
         case 4:
             deleteByName();
             console.log(addressbook);
+            break;
         case 5:
             countPerson();
+            break;
         case 6:
+            searchByCity();
+            break;
+        case 7:
             choice = 0;
     }
 }
