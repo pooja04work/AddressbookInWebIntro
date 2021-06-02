@@ -123,7 +123,6 @@ let person3 = new addressbookPerson("Haina", "Bty", "Dhaligaon", "Bongaigaon", "
 addressbook.push(person1);
 addressbook.push(person2);
 addressbook.push(person3);
-//console.log(addressbook);
 
 function addPerson() {
     let firstName = prompt("enter the first name:");
@@ -190,6 +189,7 @@ function editByName() {
 
     }
 }
+
 function deleteByName() {
     let firstNameForDelete = prompt("enter the first name whose detail you want to delete:");
     for (let i = 0; i < addressbook.length; i++) {
@@ -198,12 +198,17 @@ function deleteByName() {
             i--
         }
     }
-
 }
+
+function countPerson() {
+    let count = addressbook.length;
+    console.log("number of person in addressbook : " + count);
+}
+
 let choice = 1;
 
 while (choice != 0) {
-    console.log("1.Display \n2.Add Person. \n3.Edit Person. \n4.Delete Person. \n5.Exit");
+    console.log("1.Display \n2.Add Person. \n3.Edit Person. \n4.Delete Person. \n5.Total Person. \n6Exit");
     choice = prompt("enter your choice : ");
     choice = parseInt(choice);
 
@@ -223,6 +228,8 @@ while (choice != 0) {
             deleteByName();
             console.log(addressbook);
         case 5:
+            countPerson();
+        case 6:
             choice = 0;
     }
 }
