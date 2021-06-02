@@ -230,11 +230,16 @@ function sortAlphabaticaly() {
     console.log(sortedList);
 }
 
+function sortByCity() {
+    sortedList = addressbook.sort((firstPerson, secondPerson) => firstPerson.city.localeCompare(secondPerson.city));
+    console.log(sortedList);
+}
+
 let choice = 1;
 
 while (choice != 0) {
     console.log("1.Display \n2.Add Person. \n3.Edit Person. \n4.Delete Person. \n5.Total Person." +
-        " \n6.Search By City \n7.Count Person By City. \n8.Sort Alphabatically \n9.Exit");
+        " \n6.Search By City \n7.Count Person By City. \n8.Sort Alphabatically \n9.sort By City \n10.Exit");
     choice = prompt("enter your choice : ");
     choice = parseInt(choice);
 
@@ -267,6 +272,9 @@ while (choice != 0) {
             sortAlphabaticaly();
             break;
         case 9:
+            sortByCity();
+            break;
+        case 10:
             choice = 0;
     }
 }
